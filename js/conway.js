@@ -204,7 +204,7 @@ function loop() {
 }
 
 async function fetchPattern() {
-	let data = fetch(`http://127.0.0.1:5000/pattern`, {cache: "no-store"})
+	let data = fetch(`/endpoints/pattern`, {cache: "no-store"})
 		.then(response => {
 			return response.text();
 		})

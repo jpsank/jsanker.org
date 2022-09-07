@@ -163,12 +163,23 @@ class ConwayCanvasWrapper extends CanvasWrapper {
 	}
 	touchStart(e) {
 		super.touchStart(e);
+		// Pause the game when touching on mobile
+		rate = 10;
+		alternate = true;
+		paused = true;
 		placeCell(this.mouseX, this.mouseY);
 	}
 	touchMove(e) {
 		super.touchMove(e);
 		if (this.mousedown)
 			placeCell(this.mouseX, this.mouseY);
+	}
+	touchEnd(e) {
+		super.touchEnd(e);
+		// Speed the game back up when done touching on mobile
+		rate = 3;
+		alternate = false;
+		paused = false;
 	}
 }
 

@@ -44,22 +44,25 @@ class CanvasWrapper {
 
     // Mobile touch
     touchStart(e) {
-        if (e.target === this.canvas)
+        // For some reason, `this` is the canvas and not the canvas wrapper
+        if (e.target === this)
             e.preventDefault();
         this.mousedown = true;
-        [this.mouseX, this.mouseY] = getTouchPos(this.canvas, e);
+        [this.mouseX, this.mouseY] = getTouchPos(this, e);
     }
 
     touchEnd(e) {
-        if (e.target === this.canvas)
+        // For some reason, `this` is the canvas and not the canvas wrapper
+        if (e.target === this)
             e.preventDefault();
         this.mousedown = false;
     }
 
     touchMove(e) {
-        if (e.target === this.canvas)
+        // For some reason, `this` is the canvas and not the canvas wrapper
+        if (e.target === this)
             e.preventDefault();
-        [this.mouseX, this.mouseY] = getTouchPos(this.canvas, e);
+        [this.mouseX, this.mouseY] = getTouchPos(this, e);
     }
 
     // Set up event listeners

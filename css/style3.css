@@ -32,13 +32,15 @@ footer {
     text-align: center;
 }
 
-
 .site-title {
     font-family: "PT Mono", sans-serif;
     text-transform: uppercase;
 }
 
-#fidget-widget {
+@media (max-width: 800px) {
+    #fidget-widget {
+        margin-top: 10px;
+    }
 }
 
 #canvas-of-life {

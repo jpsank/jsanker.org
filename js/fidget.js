@@ -96,7 +96,7 @@ function dragSpin(startX, startY, endX, endY) {
     }
 }
 
-const fidget = new Fidget(canvas.width/2,canvas.height/2,canvas.width/2);
+const fidget = new Fidget(canvas.width/2, canvas.height/2, canvas.width/2);
 const canvasWrapper = new FidgetCanvasWrapper(canvas);
 
 

@@ -41,12 +41,7 @@ footer {
 #fidget-widget {
 }
 
-@media (max-width: 800px) {
-    #canvas-of-life {
-        position: absolute;
-        left: 0;
-        right: 0;
-    }
+#canvas-of-life {
 }
 
 #silverChilling{

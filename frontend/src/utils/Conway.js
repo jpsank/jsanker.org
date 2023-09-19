@@ -95,7 +95,7 @@ class DefaultDict {
 	}
 }
 
-export class GameOfLife {
+export class GridOfLife {
     constructor(rows, cols) {
         this.rows = rows;
         this.cols = cols;
@@ -156,7 +156,10 @@ export class GameOfLife {
     }
 
     // Load a pattern into the game
-    load(pattern, origin) {
+    load(pattern, origin = null) {
+        if (origin === null) {
+            origin = [Math.floor(this.rows/2 - pattern.row/2), Math.floor(this.cols/2 - pattern.cols/2)];
+        }
         for (let r=0; r < pattern.rows; r++) {
             for (let c=0; c < pattern.cols; c++) {
                 if (pattern.array[r][c]) {

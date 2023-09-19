@@ -5,7 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 const Layout = () => {
     return (
         <Container fluid className="px-sm-5">
-            <Navbar bg="light" expand="lg" className="my-4">
+            <Navbar bg="light" expand="lg" className="my-4 px-sm-0 px-3">
                 <LinkContainer to="/">
                     <Navbar.Brand>
                         JS

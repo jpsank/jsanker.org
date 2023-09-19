@@ -7,7 +7,3 @@ CORS(app, support_credentials=True)
 
 from app import routes
 
-
-app.run()
-
-

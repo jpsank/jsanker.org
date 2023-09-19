@@ -158,7 +158,7 @@ export class GridOfLife {
     // Load a pattern into the game
     load(pattern, origin = null) {
         if (origin === null) {
-            origin = [Math.floor(this.rows/2 - pattern.row/2), Math.floor(this.cols/2 - pattern.cols/2)];
+            origin = [Math.floor(this.rows/2 - pattern.rows/2), Math.floor(this.cols/2 - pattern.cols/2)];
         }
         for (let r=0; r < pattern.rows; r++) {
             for (let c=0; c < pattern.cols; c++) {

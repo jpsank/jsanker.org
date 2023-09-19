@@ -113,23 +113,7 @@ const ConwayCanvas = props => {
 		const mouseControls = new ConwayMouseControls(canvas);
 		mouseControls.addEventListeners();
 
-		// Set up initial pattern
-		async function setup() {
-			let pattern;
-			try {
-				const rle = await fetchFromAPI("pattern");  // fetch a random pattern
-				pattern = Pattern.fromRLE(rle);  // convert to a pattern object
-			} catch (e) {
-				console.log(e);
-				pattern = Pattern.fromRLE("x = 3, y = 3, rule = B3/S23\nbob$2bo$3o!");  // glider pattern as default
-			}
-
-			grid.load(pattern);
-			draw();
-		}
-		setup();
-
-		// Start animation loop
+		// Set up animation loop
 		let idx = 0;  // frame index
 		let alt = true;  // alternates between stepping and drawing
 		let animationFrameId;
@@ -154,7 +138,19 @@ const ConwayCanvas = props => {
 				idx++;
 			}
 		}
-		animationFrameId = requestAnimationFrame(render);
+
+		// Set up initial state and start animation loop
+		let pattern;
+		fetchFromAPI("pattern").then(rle => {
+			pattern = Pattern.fromRLE(rle);
+		}).catch(e => {
+			console.log(e);
+			pattern = Pattern.fromRLE("x = 3, y = 3, rule = B3/S23\nbob$2bo$3o!"); // default glider
+		}).finally(() => {
+			grid.load(pattern);
+			draw();
+			animationFrameId = requestAnimationFrame(render);
+		});
 
 		// Clean up
 		return () => {

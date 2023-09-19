@@ -7,7 +7,7 @@ const serverQuery = async (path) => {
   return axios.post(`${netlifyFunctionsPath}/serverQuery`, { path: path });
 };
 
-const backendURL = "https://jsanker.org/endpoints";
+const backendURL = "https://jsanker.org/api";
 const queryBackend = async (relativePath) => {
   return serverQuery(`${backendURL}/${relativePath}`);
 };

@@ -17,6 +17,9 @@ const ConwayCanvas = props => {
 		const tileSizeY = canvas.height/rows;
 		const tileSizeX = canvas.width/cols;
 
+		// Set up game
+		const game = new GameOfLife(rows, cols);
+
 		// Functions to draw the game
 		const drawCell = (r, c, alive) => {
 			// Draw a cell
@@ -36,26 +39,19 @@ const ConwayCanvas = props => {
 			context.clearRect(0, 0, canvas.width, canvas.height);
 	
 			// Draw all alive cells
-			for (let r of this.sparse.keys()) {
-				for (let c of this.sparse[r]) {
-					this.drawCell(r, c, true);
+			for (let r of game.sparse.keys()) {
+				for (let c of game.sparse[r]) {
+					drawCell(r, c, true);
 				}
 			}
 		}
 		const redraw = () => {
 			// Redraw all cells in the redraw list
-			for (let [r, c, alive] of this.redrawList) {
-				this.drawCell(r, c, alive)
+			for (let [r, c, alive] of game.redrawList) {
+				drawCell(r, c, alive)
 			}
-			this.redrawList = [];
+			game.redrawList = [];
 		}
-		const coordinateToGrid = (x, y) => {
-			// Convert a coordinate to a grid position
-			return [Math.floor(y/tileSizeY), Math.floor(x/tileSizeX)];
-		}
-
-		// Set up game
-		const game = new GameOfLife(rows, cols);
 
 		// Game speed variables
 		let rate = 10;
@@ -63,8 +59,12 @@ const ConwayCanvas = props => {
 		let paused = true;
 
 		// Set up mouse controls
+		const coordinateToGrid = (x, y) => {
+			// Convert a coordinate to a grid position
+			return [Math.floor(y/tileSizeY), Math.floor(x/tileSizeX)];
+		}
 		function placeCell(x, y) {
-			let [r, c] = game.coordinateToGrid(x, y);
+			let [r, c] = coordinateToGrid(x, y);
 			game.sparse[r].add(c);
 			game.redrawList.push([r, c, true]);
 		}
@@ -127,18 +127,18 @@ const ConwayCanvas = props => {
 		const render = () => {
 			animationFrameId = requestAnimationFrame(render);
 			if (paused) {
-				game.redraw();
+				redraw();
 			} else {
 				if (idx % rate === 0) {
 					if (alternate) {
 						if (alt)
 							game.step();
 						else
-							game.redraw();
+							redraw();
 						alt = !alt;
 					} else {
 						game.step();
-						game.redraw();
+						redraw();
 					}
 				}
 				idx++;
@@ -150,8 +150,8 @@ const ConwayCanvas = props => {
 			const rle = await fetchFromAPI("pattern");  // fetch a random pattern
 			const pattern = Pattern.fromRLE(rle);  // convert to a pattern object
 
-			game.preset(pattern, [Math.floor(game.rows/2-pattern.rows/2), Math.floor(game.cols/2-pattern.cols/2)]);
-			game.draw();
+			game.load(pattern, [Math.floor(game.rows/2-pattern.rows/2), Math.floor(game.cols/2-pattern.cols/2)]);
+			draw();
 
 			// Start animation loop
 			animationFrameId = requestAnimationFrame(render);

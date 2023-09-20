@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { collection, addDoc, onSnapshot } from "firebase/firestore";
+import { collection, addDoc, onSnapshot, orderBy, query } from "firebase/firestore";
 import { LinkContainer } from 'react-router-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
 import { db } from "../firebase";
@@ -18,7 +18,8 @@ const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        const unsubscribe = onSnapshot(collection(db, "blogs"), (snapshot) => {
+        const q = query(collection(db, "blogs"), orderBy("dateUpdated", "desc"));
+        const unsubscribe = onSnapshot(q, (snapshot) => {
             const blogData = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data(),
@@ -40,8 +41,9 @@ const Blogs = () => {
     };
 
     return (
-        <div>
-            {/* <h1>Blogs</h1> */}
+        <Row className="mt-5">
+            <h1>Blogs</h1>
+            <p>So, I'm learning how to use Firebase, and this is the result. I forgot to implement admin authentication, so anyone can edit these blogs. Also, there is no delete button. I will fix this, soon.</p>
             <div className="d-flex flex-column justify-content-center align-items-left">
                 <Button onClick={createNewBlog}>Add a New Blog</Button>
                 { blogs.length === 0 ? <Skeleton count={5} height={150} /> : blogs.map((blog) => (
@@ -61,7 +63,7 @@ const Blogs = () => {
                     </Card>
                 ))}
             </div>
-        </div>
+        </Row>
     )
 };
 

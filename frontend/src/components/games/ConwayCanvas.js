@@ -4,8 +4,8 @@ import MouseControls from "../../utils/MouseControls";
 import { fetchFromAPI } from "../../utils/api.js";
 
 
-const NROWS = 256;
-const NCOLS = 256;
+const NROWS = 250;
+const NCOLS = 400;
 
 
 const ConwayCanvas = props => {
@@ -16,9 +16,9 @@ const ConwayCanvas = props => {
         const context = canvas.getContext('2d');
 
 		// Set up grid
+		const grid = new GridOfLife(NROWS, NCOLS);
 		const tileSizeX = canvas.width / NCOLS;
 		const tileSizeY = canvas.height / NROWS;
-		const grid = new GridOfLife(NROWS, NCOLS);
 
 		// Set up drawing
 		const drawCell = (r, c, alive) => {
@@ -50,7 +50,8 @@ const ConwayCanvas = props => {
 		}
 		const coordinateToGrid = (x, y) => {
 			// Convert a coordinate to a grid position
-			return [Math.floor(y/tileSizeY), Math.floor(x/tileSizeX)];
+			let rect = canvas.getBoundingClientRect();
+			return [Math.floor(NROWS * parseFloat(y)/rect.height), Math.floor(NCOLS * parseFloat(x)/rect.width)];
 		}
 
 		// Set up mouse controls

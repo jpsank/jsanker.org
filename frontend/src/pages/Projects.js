@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card, Container } from "react-bootstrap";
 import Skeleton from "react-loading-skeleton";
 
 const ProjectCard = ({title, img, link, description}) => {
@@ -23,8 +23,8 @@ const ProjectCard = ({title, img, link, description}) => {
 
 const Projects = () => {
     return (
-        <>
-            <Row className="mt-5">
+        <Row className="my-5 mx-sm-5 mx-0">
+            <Row className="mt-4">
                 <h1>Projects</h1>
                 <p>These are some of my personal projects. These are all from high school, so if you want to see my recent projects, <a href="mailto:julian@sankergroup.org">send me an email</a> telling me to finish my website.</p>
             </Row>
@@ -38,19 +38,19 @@ const Projects = () => {
                 <ProjectCard
                     title="OpenChat"
                     img="img/old/openchat2.png"
-                    link="/openchat/"
+                    link="https://puffyboa.xyz/openchat/"
                     description="A new Reddit-like social media site--the successor to the previous Classic OpenChat."
                 />
                 <ProjectCard
                     title="uMusic"
                     img="img/old/uMusic2.png"
-                    link="/uMusic/"
+                    link="https://puffyboa.xyz/uMusic/"
                     description="Ad-free music streaming platform featuring songs from top charts on SoundCloud."
                 />
                 <ProjectCard
                     title="CoronaRiskMap"
                     img="img/old/coronariskmap.png"
-                    link="/coronamap/"
+                    link="https://puffyboa.xyz/coronamap/"
                     description="A daily-updating choropleth map that shows confirmed COVID-19 cases per intensive-care bed for each US state."
                 />
             </Row>
@@ -58,7 +58,7 @@ const Projects = () => {
                 <ProjectCard
                     title="HHA Grades"
                     img="img/old/hha-grades.png"
-                    link="/hha-grades/"
+                    link="https://puffyboa.xyz/hha-grades/"
                     description="Easy grade checker for Haas Hall scholars."
                 />
                 <ProjectCard
@@ -104,7 +104,7 @@ const Projects = () => {
                     description="Something (terrible) from middle school."
                 />
             </Row>
-        </>
+        </Row>
     );
 };
 

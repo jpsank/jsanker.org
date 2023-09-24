@@ -8,14 +8,14 @@ import { Link } from "react-router-dom";
 const Home = () => {
     return (
         <>
-            <Row className="mt-5 d-flex flex-sm-row flex-column justify-content-center align-items-center">
+            <Row className="d-flex flex-sm-row flex-column justify-content-center align-items-center">
                 <Col className="d-flex flex-md-row flex-column justify-content-center align-items-center">
-                    <Col sm={4} className="d-flex justify-content-center m-4" style={{width: "120px", height: "100px"}}>
+                    <Col sm={4} className="d-flex justify-content-center m-5" style={{width: "120px", height: "100px"}}>
                         <FidgetWidget height="100px" width="100px" />
                     </Col>
                     <Col className="text-md-start text-center">
                         <h2>Julian Sanker</h2>
-                        <h5>CS @ Yale. Interested in full-stack web development, computational biology, and machine learning.</h5>
+                        <h5>CS @ Yale. Interested in artificial intelligence, computational biology, and software engineering.</h5>
                         <Link to="https://www.linkedin.com/in/juliansanker">
                             <Button href="https://www.linkedin.com/in/juliansanker" target="_blank" rel="noreferrer">
                                 <i className="fa fa-linkedin fa-1x"></i>
@@ -38,10 +38,10 @@ const Home = () => {
                 </Col>
             </Row>
             
-            <Row className="my-5 py-5 d-flex flex-row justify-content-center align-items-center">
+            <Row className="my-5 py-5">
                 <Col className="d-flex flex-column justify-content-center align-items-center">
-                    <ConwayCanvas width="800px" height="500px" style={{boxShadow: "0 5px 40px #eee", maxWidth: "100%"}} />
-                    <h6 className="mt-2">John Conway's Game of Life</h6>
+                    <ConwayCanvas width="1200px" height="750px" style={{boxShadow: "0 5px 40px rgba(0,0,0,0.2)", maxWidth: "100%"}} />
+                    <h6 className="mt-2 roboto">John Conway's Game of Life</h6>
                 </Col>
             </Row>
         </>

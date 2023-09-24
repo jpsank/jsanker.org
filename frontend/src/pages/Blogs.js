@@ -41,8 +41,8 @@ const Blogs = () => {
     };
 
     return (
-        <Row className="mt-5">
-            <h1>Blogs</h1>
+        <Row className="my-5 mx-sm-5 mx-0">
+            <h1 className="mt-4">Blogs</h1>
             <p>So, I'm learning how to use Firebase, and this is the result. I forgot to implement admin authentication, so anyone can edit these blogs. Also, there is no delete button. I will fix this, soon.</p>
             <div className="d-flex flex-column justify-content-center align-items-left">
                 <Button onClick={createNewBlog}>Add a New Blog</Button>

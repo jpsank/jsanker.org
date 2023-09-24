@@ -7,7 +7,6 @@ import Projects from "./pages/Projects";
 import Blogs from "./pages/Blogs";
 import BlogView from "./pages/BlogView";
 import BlogEdit from "./pages/BlogEdit";
-import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 
 export default function App() {
@@ -24,7 +23,6 @@ export default function App() {
               <Route path=":id" element={<BlogView />} />
               <Route path="edit/:id" element={<BlogEdit />} />
             </Route>
-            <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>

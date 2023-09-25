@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 const Home = () => {
     return (
         <>
-            <Row className="d-flex flex-sm-row flex-column justify-content-center align-items-center">
+            <Row className="my-5 mx-sm-4 mx-0 d-flex flex-sm-row flex-column justify-content-center align-items-center">
                 <Col className="d-flex flex-md-row flex-column justify-content-center align-items-center">
-                    <Col sm={4} className="d-flex justify-content-center m-5" style={{width: "120px", height: "100px"}}>
+                    <Col sm={4} className="m-4 d-flex justify-content-center" style={{width: "120px", height: "100px"}}>
                         <FidgetWidget height="100px" width="100px" />
                     </Col>
                     <Col className="text-md-start text-center">
@@ -42,7 +42,7 @@ const Home = () => {
                 <Col className="d-flex flex-column justify-content-center align-items-center">
                     <ConwayCanvas width="1200px" height="750px" style={{boxShadow: "0 5px 40px rgba(0,0,0,0.2)", maxWidth: "100%"}} />
                     <div style={{marginTop: "-25px"}}>
-                        <h6 className="roboto">John Conway's Game of Life</h6>
+                        <h6 className="roboto m-0">John Conway's Game of Life</h6>
                     </div>
                 </Col>
             </Row>

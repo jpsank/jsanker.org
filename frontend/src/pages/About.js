@@ -20,7 +20,7 @@ const About = () => {
                         {
                             translateY: [69, 65],
                             children: (
-                                <h3 className="text-white roboto">Lake Fayetteville, Arkansas</h3>
+                                <h4 className="text-white roboto">Lake Fayetteville, Arkansas</h4>
                             )
                         }
                     ]}
@@ -35,7 +35,8 @@ const About = () => {
                 <Col className="p-4">
                     <h1>About</h1>
                     <p>I'm Julian Sanker, a junior studying Computer Science at Yale University, from Northwest Arkansas.</p>
-                    <p>I enjoy software development, particularly building websites and useful apps. I'm looking for jobs and research in software engineering, artificial intelligence, and computational biology.</p>
+                    <p>I enjoy software development, particularly building websites and useful apps. I'm looking for jobs in software engineering, artificial intelligence, and computational biology.</p>
+                    <p>I also enjoy nature, and I'm interested in creating models of living organisms using <a href="https://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf">neural networks and evolutionary algorithms</a>.</p>
                     <p>Reach out to me at <a href="mailto:julian@sankergroup.org">julian@sankergroup.org</a> or <a href="https://calendly.com/juliansanker">schedule a meeting</a>.</p>
                 </Col>
             </Row>

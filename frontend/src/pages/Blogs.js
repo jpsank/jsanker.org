@@ -3,7 +3,7 @@ import { collection, addDoc, onSnapshot, orderBy, query } from "firebase/firesto
 import { LinkContainer } from 'react-router-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
 import { db } from "../firebase";
-import { Button, Card, Col, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import { compareDates, truncate } from "../utils/helper";
 import Skeleton from 'react-loading-skeleton';
@@ -41,7 +41,7 @@ const Blogs = () => {
     };
 
     return (
-        <Row className="my-5 mx-sm-5 mx-0">
+        <Container className="my-5 mx-sm-5 mx-0">
             <h1 className="mt-4">Blogs</h1>
             <p>So, I'm learning how to use Firebase, and this is the result. I forgot to implement admin authentication, so anyone can edit these blogs. Also, there is no delete button. I will fix this, soon.</p>
             <div className="d-flex flex-column justify-content-center align-items-left">
@@ -63,7 +63,7 @@ const Blogs = () => {
                     </Card>
                 ))}
             </div>
-        </Row>
+        </Container>
     )
 };
 

@@ -23,8 +23,8 @@ const ProjectCard = ({title, img, link, description}) => {
 
 const Projects = () => {
     return (
-        <Row className="my-5 mx-sm-5 mx-0">
-            <Row className="mt-4">
+        <Container className="my-5 mx-sm-5 mx-0">
+            <Row className="mt-5">
                 <h1>Projects</h1>
                 <p>These are some of my personal projects. These are all from high school, so if you want to see my recent projects, <a href="mailto:julian@sankergroup.org">send me an email</a> telling me to finish my website.</p>
             </Row>
@@ -54,7 +54,7 @@ const Projects = () => {
                     description="A daily-updating choropleth map that shows confirmed COVID-19 cases per intensive-care bed for each US state."
                 />
             </Row>
-            <Row className="mt-5 d-flex flex-row justify-content-around align-items-top" style={{border: "1px solid #eee", padding: "10px", margin: "10px"}}>
+            <Row className="mt-5 mx-4 p-1 d-flex flex-row justify-content-around align-items-top" style={{border: "1px solid #eee"}}>
                 <ProjectCard
                     title="HHA Grades"
                     img="img/old/hha-grades.png"
@@ -104,7 +104,7 @@ const Projects = () => {
                     description="Something (terrible) from middle school."
                 />
             </Row>
-        </Row>
+        </Container>
     );
 };
 

@@ -102,6 +102,14 @@ const About = () => {
                             <h3 className="roboto">Fayetteville, Arkansas</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
+                    <Carousel.Item>
+                        <CarouselImage src="img/photos/hha.jpeg" alt="Haas Hall Academy, Fayetteville, AR" style={{
+                            objectPosition: "50% 80%"
+                        }} />
+                        <Carousel.Caption>
+                            <h3 className="roboto">Haas Hall Academy, Fayetteville, AR</h3>
+                        </Carousel.Caption>
+                    </Carousel.Item>
                 </Carousel>
             </Row>
         </>

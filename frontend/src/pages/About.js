@@ -28,7 +28,7 @@ const About = () => {
                     className="aspect-[2/1]"
                 />
             </Row>
-            <Row className="my-5 mx-auto d-flex flex-row justify-content-center align-items-top" style={{width: "900px", maxWidth: "100%"}}>
+            <Row className="my-5 mx-auto d-flex flex-row justify-content-center align-items-center" style={{width: "900px", maxWidth: "100%"}}>
                 <Col md={4} className="p-4 text-center">
                     <img className="" style={{width: "100%", maxWidth: "400px"}} src="img/me in dive.jpeg" alt="Julian Sanker" />
                 </Col>

@@ -20,9 +20,7 @@ const About = () => {
                         {
                             translateY: [69, 65],
                             children: (
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <h3 className="text-8xl text-white roboto">Lake Fayetteville, Arkansas</h3>
-                                </div>
+                                <h3 className="text-white roboto">Lake Fayetteville, Arkansas</h3>
                             )
                         }
                     ]}
@@ -32,7 +30,7 @@ const About = () => {
             </Row>
             <Row className="my-5 mx-auto d-flex flex-row justify-content-center align-items-top" style={{width: "900px", maxWidth: "100%"}}>
                 <Col md={4} className="p-4 text-center">
-                    <img className="border" style={{width: "100%", maxWidth: "400px"}} src="img/me in dive.jpeg" alt="Julian Sanker" />
+                    <img className="" style={{width: "100%", maxWidth: "400px"}} src="img/me in dive.jpeg" alt="Julian Sanker" />
                 </Col>
                 <Col className="p-4">
                     <h1>About</h1>
@@ -88,7 +86,7 @@ const About = () => {
                     <Carousel.Item>
                         <CarouselImage src="img/photos/log.jpeg" alt="Fayetteville, Arkansas" />
                         <Carousel.Caption>
-                            <h3 className="roboto">Fayetteville, Arkansas</h3>
+                            <h3 className="roboto">Lake Fayetteville, Arkansas</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>

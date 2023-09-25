@@ -19,7 +19,7 @@ const BlogView = () => {
     }, [params.id]);
 
     return (
-        <div className="mt-5">
+        <div className="my-5 mx-sm-5 mx-0">
             { blog === null ? <Skeleton count={15} containerClassName="mt-5" /> : (
                 <>
                     <p>{blog.dateCreated.toDate().toLocaleDateString()} {compareDates(blog.dateCreated, blog.dateUpdated) ? "(updated " + blog.dateUpdated.toDate().toLocaleDateString() + ")" : ""}</p>

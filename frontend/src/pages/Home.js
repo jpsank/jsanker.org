@@ -41,7 +41,9 @@ const Home = () => {
             <Row className="my-5 py-5">
                 <Col className="d-flex flex-column justify-content-center align-items-center">
                     <ConwayCanvas width="1200px" height="750px" style={{boxShadow: "0 5px 40px rgba(0,0,0,0.2)", maxWidth: "100%"}} />
-                    <h6 className="mt-2 roboto">John Conway's Game of Life</h6>
+                    <div style={{marginTop: "-25px"}}>
+                        <h6 className="roboto">John Conway's Game of Life</h6>
+                    </div>
                 </Col>
             </Row>
         </>

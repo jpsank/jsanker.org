@@ -62,7 +62,7 @@ const Blogs = () => {
     return (
         <Container className="my-5 mx-sm-5 mx-0">
             <h1 className="mt-4">Blogs</h1>
-            <p>So, I'm learning how to use Firebase, and this is the result. I forgot to implement admin authentication, so anyone can edit these blogs. Also, there is no delete button. I will fix this, soon.</p>
+            <p>This is where I write about things, and you can too! Sign up for an account to start writing. The markdown editor is powered by <a href="https://mdxeditor.dev/">MDXEditor</a>, the blogs are stored in a Firebase <a href="https://firebase.google.com/docs/firestore">Cloud Firestore</a> database, and the user authentication is done through <a href="https://firebase.google.com/docs/auth">Firebase Authentication</a>.</p>
             {/* <form className="d-flex" onSubmit={handleFormSubmit}>
                 <input className="form-control me-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search" />
                 <button className="btn btn-outline-primary" type="submit">Search</button>

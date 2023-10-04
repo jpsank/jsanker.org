@@ -21,6 +21,11 @@ export default function Profile() {
     }
   }, [currentUser, navigate]);
 
+  useEffect(() => {
+    // Reset error when username changes
+    setError("");
+  }, [username, setError]);
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 

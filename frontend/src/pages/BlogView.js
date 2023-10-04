@@ -29,8 +29,10 @@ const BlogView = () => {
         <Container className="my-5 mx-sm-5 mx-0">
             { blog === null ? <Skeleton count={15} containerClassName="mt-5" /> : (
                 <>
-                    <p>{blog.dateCreated.toDate().toLocaleDateString()} {compareDates(blog.dateCreated, blog.dateUpdated) ? "(updated " + blog.dateUpdated.toDate().toLocaleDateString() + ")" : ""}</p>
-                    <p>By <Link to={`/blogs/by/${blog.authorId}`}>{blog.authorName}</Link></p>
+                    <p>
+                        {blog.dateCreated.toDate().toLocaleDateString()} {compareDates(blog.dateCreated, blog.dateUpdated) ? "(updated " + blog.dateUpdated.toDate().toLocaleDateString() + ")" : ""}
+                        by <Link to={`/blogs/by/${blog.authorId}`}>{blog.authorName}</Link>
+                    </p>
                     <ReactMarkdown>{blog.content}</ReactMarkdown>
                     { currentUser && currentUser.uid === blog.authorId && 
                         <Link to={`/blogs/${params.id}/edit`}>Edit</Link>

@@ -24,3 +24,7 @@ export const fetchFromAPI = async (endpoint, params = {}) => {
   });
 };
 
+// Game of Life API functions
+export const fetchGOLPattern = async (id = null) => {
+  return fetchFromAPI("pattern", { id: id });
+};

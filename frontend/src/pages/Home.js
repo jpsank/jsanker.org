@@ -17,12 +17,12 @@ const Home = () => {
                         <h2>Julian Sanker</h2>
                         <h5>CS @ Yale. Interested in artificial intelligence, computational biology, and software engineering.</h5>
                         <Link to="https://www.linkedin.com/in/juliansanker">
-                            <Button href="https://www.linkedin.com/in/juliansanker" target="_blank" rel="noreferrer">
+                            <Button variant="white" href="https://www.linkedin.com/in/juliansanker" target="_blank" rel="noreferrer">
                                 <i className="fa fa-linkedin fa-1x"></i>
                             </Button>
                         </Link>
                         <Link to="https://github.com/jpsank">
-                            <Button href="https://github.com/jpsank" target="_blank" rel="noreferrer">
+                            <Button variant="white" href="https://github.com/jpsank" target="_blank" rel="noreferrer">
                                 <i className="fa fa-github fa-1x"></i>
                             </Button>
                         </Link>

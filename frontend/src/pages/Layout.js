@@ -1,8 +1,10 @@
 import { Outlet, Link } from "react-router-dom";
 import {Navbar, Nav, NavDropdown, Form, FormControl, Button, Container} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import { useAuth } from "../contexts/AuthContext";
 
 const Layout = () => {
+    const { currentUser } = useAuth();
     return (
         <Container fluid className="p-0">
             <Navbar bg="light" expand="lg" className="my-4 px-sm-5 px-3">
@@ -23,11 +25,20 @@ const Layout = () => {
                         <LinkContainer to="/blogs">
                             <Nav.Link>Blogs</Nav.Link>
                         </LinkContainer>
+                        {currentUser ? (
+                            <LinkContainer to="/profile">
+                                <Nav.Link>Profile</Nav.Link>
+                            </LinkContainer>
+                        ) : (
+                            <LinkContainer to="/login">
+                                <Nav.Link>Sign in</Nav.Link>
+                            </LinkContainer>
+                        )}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
             
-            <Container fluid>
+            <Container fluid style={{minHeight: "64vh"}}>
                 <Outlet />
             </Container>
 

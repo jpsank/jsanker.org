@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Pattern, GridOfLife } from "../../utils/Conway.js";
 import MouseControls from "../../utils/MouseControls";
-import { fetchFromAPI } from "../../utils/api.js";
+import { fetchGOLPattern } from "../../services/api.js";
 
 
 const NROWS = 250;
@@ -142,7 +142,7 @@ const ConwayCanvas = props => {
 
 		// Set up initial state and start animation loop
 		let pattern;
-		fetchFromAPI("pattern").then(rle => {
+		fetchGOLPattern().then(rle => {
 			pattern = Pattern.fromRLE(rle);
 		}).catch(e => {
 			console.log(e);

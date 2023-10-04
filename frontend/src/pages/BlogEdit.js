@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { doc, onSnapshot, updateDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../config/firebase";
 import '@mdxeditor/editor/style.css';
 import {
     MDXEditor,
@@ -31,11 +31,15 @@ import {
     InsertImage,
     ListsToggle,
 } from '@mdxeditor/editor';
+import { Container } from "react-bootstrap";
+import Skeleton from "react-loading-skeleton";
+import { useAuth } from "../contexts/AuthContext";
 
 
 const BlogEdit = () => {
     const params = useParams();
     const [blog, setBlog] = useState(null);
+    const { currentUser } = useAuth();
 
     useEffect(() => {
         const unsubscribe = onSnapshot(doc(db, "blogs", params.id), (doc) => {
@@ -43,6 +47,12 @@ const BlogEdit = () => {
         });
         return () => unsubscribe();
     }, [params.id]);
+
+    useEffect(() => {
+        if (blog !== null && currentUser && currentUser.uid !== blog.authorId) {
+            window.location.href = "/blogs/" + params.id;
+        }
+    }, [blog, currentUser, params.id]);
 
     const handleUpdate = async (content) => {
         let date = new Date();
@@ -53,8 +63,8 @@ const BlogEdit = () => {
     };
 
     return (
-        <div className="mt-3">
-            { blog === null ? <p>Loading...</p> : (
+        <Container className="my-5 mx-sm-5 mx-0">
+            { blog === null ? <Skeleton count={15} containerClassName="mt-5" /> : (
                 <MDXEditor
                     markdown={blog.content}
                     onChange={handleUpdate}
@@ -92,7 +102,7 @@ const BlogEdit = () => {
                     ]}
                 />
             )}
-        </div>
+        </Container>
     );
 }
 

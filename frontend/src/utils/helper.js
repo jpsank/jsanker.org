@@ -2,11 +2,12 @@
 
 // Truncate a string to a certain number of characters and lines
 export const truncate = (str, maxChars = 420, maxLines = 4) => {
-    let lines = str.split('\n');
+    let lines = str.split(/[\r\n]+/);
+    console.log(lines);
     if (lines.length > maxLines) {
-        str = lines.slice(0, maxLines).join('\n');
+        str = lines.slice(0, maxLines).join('\n\n').trim() + "...";
     }
-    return str.length > maxChars ? str.substr(0, maxChars - 1) + "..." : str;
+    return str.length > maxChars ? str.substr(0, maxChars - 1).trim() + "..." : str;
 }
 
 // Compare two Firestore Timestamps by date

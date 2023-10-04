@@ -1,12 +1,10 @@
 
 
 // Truncate a string to a certain number of characters and lines
-export const truncate = (str, maxChars = 100, maxLines = 3) => {
+export const truncate = (str, maxChars = 420, maxLines = 4) => {
     let lines = str.split('\n');
     if (lines.length > maxLines) {
-        lines = lines.slice(0, maxLines);
-        lines[maxLines - 1] = lines[maxLines - 1].substr(0, maxChars - 1) + "...";
-        return lines.join('\n');
+        str = lines.slice(0, maxLines).join('\n');
     }
     return str.length > maxChars ? str.substr(0, maxChars - 1) + "..." : str;
 }

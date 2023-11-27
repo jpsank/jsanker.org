@@ -1,17 +1,17 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Pattern, GridOfLife } from "../../utils/Conway.js";
 import MouseControls from "../../utils/MouseControls";
 import { fetchGOLPattern } from "../../services/api.js";
 
-
-const NROWS = 250;
-const NCOLS = 400;
-
+const DEFAULT_RLE = "x = 3, y = 3, rule = B3/S23\nbob$2bo$3o!";  // default grlider
 
 const ConwayCanvas = props => {
     const canvasRef = useRef(null);
 
     useEffect(() => {
+		const NROWS = props.nrows;
+		const NCOLS = props.ncols;
+
 		const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
 
@@ -146,7 +146,7 @@ const ConwayCanvas = props => {
 			pattern = Pattern.fromRLE(rle);
 		}).catch(e => {
 			console.log(e);
-			pattern = Pattern.fromRLE("x = 3, y = 3, rule = B3/S23\nbob$2bo$3o!"); // default glider
+			pattern = Pattern.fromRLE(DEFAULT_RLE);
 		}).finally(() => {
 			grid.load(pattern);
 			draw();
@@ -158,8 +158,7 @@ const ConwayCanvas = props => {
 			cancelAnimationFrame(animationFrameId);
 			mouseControls.removeEventListeners();
 		}
-
-	}, [canvasRef]);
+	}, [canvasRef, props]);
 
 	return <canvas ref={canvasRef} {...props} />;
 }

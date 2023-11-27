@@ -1,5 +1,7 @@
 [build]
-  functions = "functions"
+  command = "yarn build"
+  functions = "functions/"
+  publish = "build"
 
 [[redirects]]
   from = "/*"

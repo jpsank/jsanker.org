@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import { Col, Container, Row } from "react-bootstrap";
-import { db } from "../config/firebase";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import { db } from "../services/firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { compareDates } from "../utils/helper";

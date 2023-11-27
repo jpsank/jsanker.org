@@ -1,21 +1,23 @@
 const axios = require("axios");
 
 exports.handler = async function (event, context) {
-  // empty response
-  let responseData = {};
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: "Method Not Allowed" };
+  }
 
-  // check if there was a payload sent in
-  if (event.body) {
-    const requestBody = JSON.parse(event.body);
-    // this is the path sent in
-    const path = requestBody.path;
-    // request the data from there
-    try {
-      const response = await axios.get(path);
-      responseData = response.data;
-    } catch (e) {
-      console.log(e);
-    }
+  let requestBody = JSON.parse(event.body);
+  let path = requestBody.path;
+  
+  if (path === "" || !path) {
+    return { statusCode: 400, body: "No path provided" };
+  }
+
+  let responseData = {};
+  try {
+    const response = await axios.get(path);
+    responseData = response.data;
+  } catch (error) {
+    responseData = { error: error.message };
   }
 
   // forward the response

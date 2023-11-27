@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Row, Col, Card, Container } from "react-bootstrap";
+import { Row, Card, Container } from "react-bootstrap";
 import Skeleton from "react-loading-skeleton";
 
 const ProjectCard = ({title, img, link, description}) => {

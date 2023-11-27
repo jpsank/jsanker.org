@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { collection, addDoc, onSnapshot, orderBy, query, where } from "firebase/firestore";
-import { LinkContainer } from 'react-router-bootstrap';
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { db } from "../config/firebase";
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { db } from "../services/firebase";
+import { Button, Card, Container } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import { compareDates, truncate } from "../utils/helper";
 import Skeleton from 'react-loading-skeleton';

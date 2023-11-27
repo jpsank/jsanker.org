@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { doc, onSnapshot, updateDoc } from "firebase/firestore";
-import { db } from "../config/firebase";
+import { db } from "../services/firebase";
 import '@mdxeditor/editor/style.css';
 import {
     MDXEditor,
     AdmonitionDirectiveDescriptor,
     UndoRedo,
-    codeBlockPlugin,
-    codeMirrorPlugin,
+    // codeBlockPlugin,
+    // codeMirrorPlugin,
     diffSourcePlugin,
     directivesPlugin,
     frontmatterPlugin,
@@ -19,7 +19,7 @@ import {
     listsPlugin,
     markdownShortcutPlugin,
     quotePlugin,
-    sandpackPlugin,
+    // sandpackPlugin,
     tablePlugin,
     thematicBreakPlugin,
     toolbarPlugin,

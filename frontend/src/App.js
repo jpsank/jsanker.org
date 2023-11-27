@@ -3,7 +3,6 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import { AuthProvider } from "./contexts/AuthContext";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
-import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Blogs from "./pages/Blogs";
 import BlogView from "./pages/BlogView";
@@ -23,7 +22,6 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path="about" element={<About />} />
               <Route path="projects" element={<Projects />} />
 
               <Route path="blogs">

@@ -26,5 +26,5 @@ def fetch_pattern(name=None):
             filename = name
         else:
             abort(404)
-    return send_from_directory(PATTERN_DIR, filename, as_attachment=True, cache_timeout=0)
+    return send_from_directory(PATTERN_DIR, filename, as_attachment=True, max_age=0)
 
